@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Portafolio de diseño de Sofía Ortiz. Ocho proyectos y una presentación personal."
+    >
+    <title>TOTORA VIVA / TORAPLEX — Sofía Ortiz</title>
+    <link rel="icon" href="imagenes/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <style>
+      /* Láminas explicativas debajo del video */
+      .project-boards { margin: 5rem 0; padding-top: 2rem; border-top: 1px solid #e8e8e8; }
+      .boards-heading { display: flex; justify-content: space-between; align-items: end; gap: 2rem; margin-bottom: 2rem; }
+      .boards-heading h2 { margin: 0; font-size: clamp(1.7rem, 3vw, 2.6rem); font-weight: 500; letter-spacing: -.04em; }
+      .boards-heading .eyebrow { margin-bottom: .7rem; }
+      .boards-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+      .board-open { display: block; width: 100%; border: 0; padding: 0; background: transparent; cursor: zoom-in; }
+      .board-open img { width: 100%; height: auto; background: #f3f3f0; border: 1px solid #e8e8e8; }
+      .board-caption { display: flex; gap: .8rem; margin-top: 1rem; }
+      .board-caption span { color: #777; font-variant-numeric: tabular-nums; }
+      .board-caption strong { display: block; color: #191919; font-size: .95rem; font-weight: 500; }
+      .board-caption p { margin: .35rem 0 0; line-height: 1.5; }
+      .board-dialog { box-sizing: border-box; width: min(94vw, 1250px); max-width: 94vw; max-height: 92dvh; padding: 1.5rem; border: 0; background: #fff; overflow: auto; }
+      .board-dialog::backdrop { background: rgba(0, 0, 0, .75); }
+      .board-dialog-bar { position: sticky; top: -1.5rem; display: flex; justify-content: space-between; gap: 1rem; align-items: center; background: #fff; padding: 1rem 0; z-index: 1; }
+      .board-dialog-bar h2 { margin: 0; font-size: 1rem; font-weight: 500; }
+      .board-close { padding: .5rem 1rem; background: #fff; border: 1px solid #ddd; cursor: pointer; }
+      .board-dialog img { width: 100%; height: auto; }
+      .board-original { display: inline-block; margin: 1rem 0; font-size: .875rem; }
+      @media (max-width: 700px) {
+        .boards-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+        .boards-heading { flex-direction: column; align-items: start; gap: 1rem; }
+        .board-dialog { padding: 1rem; }
+        .board-dialog-bar { top: -1rem; }
+      }
+
+      .project-web {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2rem;
+        margin: 4rem 0;
+        padding: clamp(1.5rem, 3vw, 3rem);
+        background: #eaf0e1;
+        color: #343c2a;
+      }
+      .project-web h2 {
+        margin: 0 0 1rem;
+        font-size: clamp(1.7rem, 3vw, 2.4rem);
+        font-weight: 500;
+        letter-spacing: -.04em;
+      }
+      .project-web p { margin: 0; max-width: 40rem; }
+      .project-web .eyebrow { margin-bottom: .8rem; color: #535e44; }
+      .project-web-link {
+        display: inline-block;
+        flex-shrink: 0;
+        padding: 1rem 1.4rem;
+        background: #424b32;
+        color: #fff;
+        text-decoration: none;
+      }
+      @media (max-width: 700px) {
+        .project-web { flex-direction: column; align-items: flex-start; }
+      }
+
+      /* Resultados: imágenes completas y pies alineados */
+      .project-outcomes {
+        margin: 5rem 0;
+        padding-top: 2rem;
+        border-top: 1px solid #e8e8e8;
+      }
+
+      .outcomes-heading {
+        margin-bottom: 2rem;
+      }
+
+      .outcomes-heading .eyebrow {
+        margin-bottom: .8rem;
+        color: #596344;
+      }
+
+      .outcomes-heading h2 {
+        margin: 0;
+        font-size: clamp(1.7rem, 3vw, 2.6rem);
+        font-weight: 500;
+        letter-spacing: -.04em;
+        line-height: 1.15;
+      }
+
+      .outcomes-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: start;
+        gap: clamp(1.5rem, 3vw, 3rem);
+      }
+
+      .outcome-card {
+        min-width: 0;
+        margin: 0;
+      }
+
+		 .outcome-image {
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  aspect-ratio: 4 / 3;
+	  padding: 0;
+	  box-sizing: border-box;
+	  background: transparent;
+	  border: 0;
+	}
+
+      .outcome-image img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        min-height: 0;
+        object-fit: contain;
+        background: transparent;
+      }
+
+      .outcome-caption {
+        display: grid;
+        grid-template-columns: 2rem minmax(0, 1fr);
+        align-items: start;
+        gap: .75rem;
+        margin: 0;
+        padding-top: 1.25rem;
+        color: #65655f;
+        font-size: .875rem;
+        line-height: 1.6;
+      }
+
+      .outcome-number {
+        color: #596344;
+        font-size: .75rem;
+        font-variant-numeric: tabular-nums;
+        padding-top: .15rem;
+      }
+
+      .outcome-caption strong {
+        display: block;
+        margin-bottom: .5rem;
+        color: #191919;
+        font-size: 1.125rem;
+        font-weight: 500;
+        line-height: 1.4;
+      }
+
+      .outcome-caption p {
+        margin: 0;
+        max-width: 34rem;
+      }
+
+      .outcome-caption .outcome-meta {
+        margin-top: .65rem;
+        color: #596344;
+        font-size: .75rem;
+        letter-spacing: .02em;
+      }
+
+      @media (max-width: 700px) {
+        .project-outcomes {
+          margin: 3.5rem 0;
+        }
+
+        .outcomes-grid {
+          grid-template-columns: 1fr;
+          gap: 2.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navegación principal -->
+    <header class="header">
+      <a class="brand" href="index.html">Sofía Ortiz</a>
+      <nav aria-label="Navegación principal">
+        <a href="index.html">Mis proyectos</a>
+        <a href="sobre-mi.html">Sobre mí</a>
+      </nav>
+    </header>
+    <main class="detail">
+      <a class="back-link" href="index.html">Volver a proyectos</a>
+      <div class="detail-heading">
+        <p class="eyebrow">02 / Diseño integral</p>
+        <h1>TOTORA VIVA / TORAPLEX</h1>
+        <p>
+          Totora Viva reconecta a Quilicura con el Humedal Estero Las Cruces mediante un biomaterial
+          de totora, señalética y educación ambiental.
+        </p>
+      </div>
+      <figure class="detail-cover">
+        <img
+          src="imagenes/textura_toraplex.png"
+          alt="TOTORA VIVA / TORAPLEX"
+          loading="eager"
+          width="595"
+          height="842"
+        >
+        <figcaption>TOTORA VIVA / TORAPLEX</figcaption>
+      </figure>
+      <div class="detail-text">
+        <h2>Sobre el proyecto</h2>
+        <div>
+          <p>
+            Totora Viva es un proyecto integral que busca revitalizar la relación entre la comunidad de Quilicura y el Humedal Estero Las Cruces mediante la puesta en valor de la totora como recurso identitario, ecológico y cultural.
+          </p>
+          <p>
+            La iniciativa se articula a través de tres ejes complementarios: el desarrollo del biomaterial Toraplex, pensado específicamente para aplicaciones laminares y para la creación de señalética destinada tanto al humedal como a distintos puntos de la ciudad, una plataforma web educativa que comunica su importancia ecológica e histórica, y un plan de difusión y participación comunitaria que fortalece la conexión territorial.
+          </p>
+          <dl class="project-meta">
+            <div>
+              <dt>Año</dt>
+              <dd>2025</dd>
+            </div>
+            <div>
+              <dt>Área</dt>
+              <dd>Diseño integral</dd>
+            </div>
+            <div>
+              <dt>Equipo&nbsp;</dt>
+              <dd>Carla Marconi, Diego Henriquez, Sofia Ortiz, Jose Tomas Guzman.</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+      <!-- Aplicaciones del biomaterial y publicación del proyecto -->
+      <section class="project-outcomes" aria-labelledby="outcomes-title">
+        <div class="outcomes-heading">
+          <p class="eyebrow">Totora Viva / Aplicaciones y difusión</p>
+          <h2 id="outcomes-title">Aplicaciones y difusión.</h2>
+        </div>
+
+        <div class="outcomes-grid">
+          <figure class="outcome-card reveal">
+            <div class="outcome-image">
+              <img
+                src="imagenes/proyecto-02-detalle-01.jpg"
+                alt="Señalética del Humedal Estero Las Cruces realizada en biomaterial de totora"
+                loading="lazy"
+                width="1536"
+                height="1024"
+              >
+            </div>
+            <figcaption class="outcome-caption">
+              <span class="outcome-number">01</span>
+              <div>
+                <strong>Grabado láser en Toraplex</strong>
+                <p>Aplicación del biomaterial de totora en una pieza de identificación para el Humedal Estero Las Cruces.</p>
+              </div>
+            </figcaption>
+          </figure>
+
+          <figure class="outcome-card reveal">
+            <div class="outcome-image">
+              <img
+                src="imagenes/Taller Humedales_ cuadernillo.jpg"
+                alt="Portada verde de la publicación Taller Humedales"
+                loading="lazy"
+                width="1024"
+                height="1536"
+              >
+            </div>
+            <figcaption class="outcome-caption">
+              <span class="outcome-number">02</span>
+              <div>
+                <strong>Proyecto publicado en Taller Humedales</strong>
+                <p>Diseño UC · CEDEUS · Fundación Kennedy</p>
+                <p class="outcome-meta">ISBN 978-956-425-538-5</p>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+      <!-- Láminas originales con el mismo visor de HYDRATILE -->
+      <section class="project-boards" aria-labelledby="boards-title">
+        <div class="boards-heading">
+          <div>
+            <p class="eyebrow">Totora Viva / Láminas del proyecto</p>
+            <h2 id="boards-title">Investigación y desarrollo.</h2>
+          </div>
+          <a href="documentos/totora-viva-laminas.pdf" target="_blank" rel="noopener">Ver PDF completo ↗</a>
+        </div>
+        <div class="boards-grid">
+          <figure>
+            <button class="board-open" type="button" data-board-title="Investigación y conceptualización" aria-label="Ampliar lámina 1: Investigación y conceptualización">
+              <img src="imagenes/proyecto-02-lamina-01.jpg" alt="Lámina original de Totora Viva: Investigación y conceptualización" width="2195" height="1606" loading="lazy">
+            </button>
+            <figcaption class="board-caption">
+              <span>01</span>
+              <div>
+                <strong>Investigación y conceptualización</strong>
+                <p>Contexto del humedal, referentes y oportunidad de diseño.</p>
+              </div>
+            </figcaption>
+          </figure>
+          <figure>
+            <button class="board-open" type="button" data-board-title="Totora Viva / Propuesta integral" aria-label="Ampliar lámina 2: Totora Viva / Propuesta integral">
+              <img src="imagenes/proyecto-02-lamina-02.jpg" alt="Lámina original de Totora Viva: Totora Viva / Propuesta integral" width="2195" height="1606" loading="lazy">
+            </button>
+            <figcaption class="board-caption">
+              <span>02</span>
+              <div>
+                <strong>Totora Viva / Propuesta integral</strong>
+                <p>Biomaterial, plataforma web, pruebas y estrategia de difusión.</p>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- Manual de fabricación: añadir el documento y su bloque cuando llegue el archivo. -->
+
+      <section class="project-web" aria-labelledby="web-title">
+        <div>
+          <p class="eyebrow">Plataforma web / Totora Viva</p>
+          <h2 id="web-title">El proyecto continúa aquí.</h2>
+          <p>Explora la totora, su vínculo con el territorio y el biomaterial Toraplex en la web del proyecto.</p>
+        </div>
+        <a class="project-web-link" href="https://sofiamortizriesco-png.github.io/totoraviva./" target="_blank" rel="noopener">Visitar Totora Viva ↗</a>
+      </section>
+
+      <nav class="project-pagination" aria-label="Navegación entre proyectos">
+        <a href="proyecto-01.html">Proyecto anterior</a>
+        <a href="index.html">Todos los proyectos</a>
+        <a href="proyecto-03.html">Siguiente proyecto</a>
+      </nav>
+    </main>
+    <footer>
+      <span>Sofía Ortiz / Portafolio</span>
+      <a href="index.html">Todos los proyectos</a>
+    </footer>
+    <!-- Visor de láminas: cerrar con el botón o con Escape -->
+    <dialog class="board-dialog" id="board-dialog" aria-labelledby="board-dialog-title">
+      <div class="board-dialog-bar">
+        <h2 id="board-dialog-title">Lámina del proyecto</h2>
+        <button class="board-close" type="button">Cerrar ×</button>
+      </div>
+      <a class="board-original" target="_blank" rel="noopener">Ver imagen en tamaño original ↗</a>
+      <img class="board-enlarged" alt="">
+    </dialog>
+    <script>
+      const boardDialog = document.getElementById("board-dialog");
+      const boardImage = boardDialog.querySelector(".board-enlarged");
+      const boardTitle = document.getElementById("board-dialog-title");
+      const boardOriginal = boardDialog.querySelector(".board-original");
+      let lastBoard;
+
+      document.querySelectorAll(".board-open").forEach((button) => {
+        button.addEventListener("click", () => {
+          const image = button.querySelector("img");
+          lastBoard = button;
+          boardImage.src = image.src;
+          boardImage.alt = image.alt;
+          boardTitle.textContent = button.dataset.boardTitle;
+          boardOriginal.href = image.src;
+          boardDialog.showModal();
+          boardDialog.scrollTop = 0;
+        });
+      });
+
+      boardDialog.querySelector(".board-close").addEventListener("click", () => {
+        boardDialog.close();
+      });
+      boardDialog.addEventListener("close", () => {
+        if (lastBoard) lastBoard.focus({ preventScroll: true });
+      });
+
+    </script>
+  </body>
+</html>

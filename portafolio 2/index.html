@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Portafolio de diseño de Sofía Ortiz. Ocho proyectos y una presentación personal."
+    >
+    <title>Portafolio — Sofía Ortiz</title>
+    <link rel="icon" href="imagenes/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body data-home="true">
+    <!-- Animación de entrada -->
+    <div class="intro" id="intro" hidden aria-label="Animación de entrada">
+      <div class="intro-stage">
+        <div class="cube" id="cube">
+          <div class="cube-face face-0">
+            <img
+              src="imagenes/proyecto-01.jpg"
+              alt="Arquitectura de madera y luz — imagen referencial"
+              loading="eager"
+              width="900"
+              height="1200"
+            >
+          </div>
+          <div class="cube-face face-1">
+            <img
+              src="imagenes/proyecto-02.jpg"
+              alt="Texturas de un arrecife — imagen referencial"
+              loading="eager"
+              width="900"
+              height="1200"
+            >
+          </div>
+          <div class="cube-face face-2">
+            <img
+              src="imagenes/proyecto-03.jpg"
+              alt="Detalle de arquitectura y sombras — imagen referencial"
+              loading="eager"
+              width="900"
+              height="1200"
+            >
+          </div>
+          <div class="cube-face face-3">
+            <img
+              src="imagenes/proyecto-04.jpg"
+              alt="Textura de una tela clara — imagen referencial"
+              loading="eager"
+              width="900"
+              height="1200"
+            >
+          </div>
+          <div class="cube-face face-4">
+            <img
+              src="imagenes/proyecto-06.jpg"
+              alt="Textura de una tela verde — imagen referencial"
+              loading="eager"
+              width="900"
+              height="1200"
+            >
+          </div>
+          <div class="cube-face face-5">
+            <img
+              src="imagenes/proyecto-07.jpg"
+              alt="Pliegues de tela rosada — imagen referencial"
+              loading="eager"
+              width="900"
+              height="1200"
+            >
+          </div>
+        </div>
+      </div>
+      <img id="intro-zoom" class="intro-zoom" src="imagenes/proyecto-01.jpg" alt="" width="900" height="1200">
+      <span class="intro-name">SOFÍA ORTIZ</span>
+      <button id="skip-intro" class="text-button skip-intro" type="button">Saltar entrada</button>
+    </div>
+    <div id="site">
+      <!-- Navegación principal -->
+      <header class="header">
+        <a class="brand" href="index.html">Sofía Ortiz</a>
+        <nav aria-label="Navegación principal">
+          <a href="index.html" aria-current="page">Mis proyectos</a>
+          <a href="sobre-mi.html">Sobre mí</a>
+        </nav>
+      </header>
+      <main class="home">
+        <div class="portfolio-title">
+          <p class="eyebrow">Proyectos</p>
+          <h1>PORTAFOLIO</h1>
+          <p class="project-count" aria-live="polite" aria-atomic="true" aria-label="Proyecto 1 de 8">
+            <span class="current-project" id="current-project">01</span>
+            <span aria-hidden="true">/ 08</span>
+          </p>
+        </div>
+        <div class="project-list">
+          <!-- Proyecto 01 -->
+          <article class="project-row reveal">
+            <a class="project-image" href="proyecto-01.html" aria-label="Ver HYDRATILE">
+              <img
+                src="imagenes/proyecto-01.jpg"
+                alt="HYDRATILE"
+                loading="lazy"
+                width="1086"
+                height="1448"
+              >
+              <span class="image-number">01</span>
+            </a>
+            <div class="project-info">
+              <p class="eyebrow">01 / Diseño industrial</p>
+              <h2><a href="proyecto-01.html">HYDRATILE</a></h2>
+              <p>
+                Baldosa porosa que captura vapor, condensa y transporta agua para usos secundarios.
+              </p>
+              <a class="project-link" href="proyecto-01.html">Ver proyecto</a>
+            </div>
+          </article>
+          <!-- Proyecto 02 -->
+          <article class="project-row reveal">
+            <a class="project-image" href="proyecto-02.html" aria-label="Ver TOTORA VIVA / TORAPLEX">
+              <img
+                src="imagenes/proyecto-02.jpg"
+                alt="TOTORA VIVA / TORAPLEX"
+                loading="lazy"
+                width="595"
+                height="842"
+              >
+              <span class="image-number">02</span>
+            </a>
+            <div class="project-info">
+              <p class="eyebrow">02 / Diseño integral</p>
+              <h2><a href="proyecto-02.html">TOTORA VIVA&nbsp; /&nbsp;TORAPLEX</a></h2>
+              <p>
+                Biomaterial de totora, señalética y educación ambiental para reconectar Quilicura
+                con el Humedal Estero Las Cruces.
+              </p>
+              <a class="project-link" href="proyecto-02.html">Ver proyecto</a>
+            </div>
+          </article>
+          <!-- Proyecto 03 -->
+          <article class="project-row reveal">
+            <a class="project-image" href="proyecto-03.html" aria-label="Ver CUCHILLO">
+              <img
+                src="imagenes/proyecto-03.jpg"
+                alt="CUCHILLO"
+                loading="lazy"
+                width="1024"
+                height="1536"
+              >
+              <span class="image-number">03</span>
+            </a>
+            <div class="project-info">
+              <p class="eyebrow">03 / Diseño gráfico</p>
+              <h2><a href="proyecto-03.html">LA ROTUNDA&nbsp;</a></h2>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore.
+              </p>
+              <a class="project-link" href="proyecto-03.html">Ver proyecto</a>
+            </div>
+          </article>
+          <!-- Proyecto 04 -->
+          <article class="project-row reveal">
+            <a class="project-image" href="proyecto-04.html" aria-label="Ver ÚLTIMA LLAMADA">
+              <img
+                src="imagenes/proyecto-04.jpg"
+                alt="ÚLTIMA LLAMADA"
+                loading="lazy"
+                width="5184"
+                height="3456"
+              >
+              <span class="image-number">04</span>
+            </a>
+            <div class="project-info">
+              <p class="eyebrow">04 / Diseño de vestuario</p>
+              <h2><a href="proyecto-04.html">ÚLTIMA LLAMADA</a></h2>
+              <p>
+                Exploración textil que transforma una prenda desde su estructura original para darle
+                una segunda vida.
+              </p>
+              <a class="project-link" href="proyecto-04.html">Ver proyecto</a>
+            </div>
+          </article>
+          <!-- Proyecto 05 -->
+          <article class="project-row reveal">
+            <a class="project-image" href="proyecto-05.html" aria-label="Ver Nuevo proyecto">
+              <img
+                src="imagenes/proyecto-05.jpg"
+                alt="Nuevo proyecto"
+                loading="lazy"
+                width="1024"
+                height="1536"
+              >
+              <span class="image-number">05</span>
+            </a>
+            <div class="project-info">
+              <p class="eyebrow">05 / Diseño industrial</p>
+              <h2><a href="proyecto-05.html">CUCHILLO&nbsp;</a></h2>
+              <p>Dos cuchillos con hoja de acrílico y empuñadura de roble, adaptados a la escala de la mano.</p>
+              <a class="project-link" href="proyecto-05.html">Ver proyecto</a>
+            </div>
+          </article>
+          <!-- Proyecto 06 -->
+          <article class="project-row reveal">
+            <a class="project-image" href="proyecto-06.html" aria-label="Ver ALTRA">
+              <img
+                src="imagenes/proyecto-06.jpg"
+                alt="ALTRA"
+                loading="lazy"
+                width="1262"
+                height="1621"
+              >
+              <span class="image-number">06</span>
+            </a>
+            <div class="project-info">
+              <p class="eyebrow">06 / Diseño de tipografía</p>
+              <h2><a href="proyecto-06.html">ALTRA&nbsp;</a></h2>
+              <p>
+                Creación de una tipografía propia a partir de la exploración de formas, proporciones
+                y trazos.
+              </p>
+              <a class="project-link" href="proyecto-06.html">Ver proyecto</a>
+            </div>
+          </article>
+          <!-- Proyecto 07 -->
+          <article class="project-row reveal">
+            <a class="project-image" href="proyecto-07.html" aria-label="Ver LUMA">
+              <img
+                src="imagenes/proyecto-07.jpg"
+                alt="LUMA"
+                loading="lazy"
+                width="1024"
+                height="1280"
+              >
+              <span class="image-number">07</span>
+            </a>
+            <div class="project-info">
+              <p class="eyebrow">07 / Plan de Marketing</p>
+              <h2><a href="proyecto-07.html">LUMA&nbsp;</a></h2>
+              <p>
+                Plan de marketing para una marca local de skincare adolescente, con rutinas simples,
+                personalizables y educativas.
+              </p>
+              <a class="project-link" href="proyecto-07.html">Ver proyecto</a>
+            </div>
+          </article>
+          <!-- Proyecto 08 -->
+          <article class="project-row reveal">
+            <a class="project-image" href="proyecto-08.html" aria-label="Ver LECHE AGRIA">
+              <img
+                src="imagenes/proyecto-08.jpg"
+                alt="LECHE AGRIA"
+                loading="lazy"
+                width="1080"
+                height="1350"
+              >
+              <span class="image-number">08</span>
+            </a>
+            <div class="project-info">
+              <p class="eyebrow">08 / Diseño gráfico</p>
+              <h2><a href="proyecto-08.html">LECHE AGRIA&nbsp;</a></h2>
+              <p>Creación de la identidad visual para el cortometraje Leche Agria.</p>
+              <a class="project-link" href="proyecto-08.html">Ver proyecto</a>
+            </div>
+          </article>
+        </div>
+      </main>
+      <footer>
+        <span>Sofía Ortiz / Portafolio</span>
+        <button class="text-button" id="replay-intro" type="button">Repetir entrada</button>
+      </footer>
+    </div>
+  </body>
+</html>
